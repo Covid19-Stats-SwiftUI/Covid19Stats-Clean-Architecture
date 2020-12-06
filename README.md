@@ -1,4 +1,4 @@
-# Covid19Stats-Clean-Architecture
+# Covid19Stats Clean Architecture
 
 ## Todo
 * [ ] Add Realm Database
@@ -13,3 +13,9 @@
 * [ ] Unit Testing
 * [ ] UI Testing
 * [ ] Unit Testing
+
+## Author
+
+* **Ari Supriatna**
+
+Don't forget to follow me, fork and give me a ⭐
