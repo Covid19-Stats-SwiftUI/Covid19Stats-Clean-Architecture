@@ -6,3 +6,24 @@
 //
 
 import Foundation
+import Combine
+
+protocol SearchUseCase {
+  
+  func getCountries() -> AnyPublisher<[CountryModel], Covid19APIError>
+  
+}
+
+class SearchInteractor: SearchUseCase {
+  
+  private let repository: CovidRepositoryProtocol
+  
+  required init(repository: CovidRepositoryProtocol) {
+    self.repository = repository
+  }
+  
+  func getCountries() -> AnyPublisher<[CountryModel], Covid19APIError> {
+    return repository.getCountries()
+  }
+  
+}
