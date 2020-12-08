@@ -2,17 +2,20 @@
 
 ## Todo
 * [ ] Add Realm Database
-* [ ] Add feature search
+* [x] Add feature search country
 * [ ] Add feature offline
-* [x] WidgetKit Static
-* [ ] WidgetKit with Intent + SiriKit
-* [ ] WidgetKit with Deeplink
+* [ ] Add feature news
+* [x] WidgetKit Static for CovidStats
+* [ ] WidgetKit with Intent + SiriKit for CovidStats
+* [ ] WidgetKit with Deeplink for CovidStats
+* [ ] WidgetKit Static for News
+* [ ] WidgetKit with Intent + SiriKit for Nes
+* [ ] WidgetKit with Deeplink for News
 * [ ] App Clip
 * [ ] Support iPadOS
 * [ ] Support macOS
 * [ ] Unit Testing
 * [ ] UI Testing
-* [ ] Unit Testing
 
 ## Author
 
