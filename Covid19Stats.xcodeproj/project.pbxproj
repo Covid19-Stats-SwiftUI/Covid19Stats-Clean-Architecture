@@ -76,7 +76,6 @@
 		86990149257BC33B009010D7 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86990096257B8B01009010D7 /* CountryModel.swift */; };
 		8699014A257BC33B009010D7 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869900D8257BA54A009010D7 /* Helper.swift */; };
 		8699014B257BC33B009010D7 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869900C4257B9EDE009010D7 /* String+Ext.swift */; };
-		8699014C257BC33B009010D7 /* GlobalCaseStatsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869900A2257B8BBB009010D7 /* GlobalCaseStatsMapper.swift */; };
 		8699014D257BC33B009010D7 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869900AF257B91FF009010D7 /* APICall.swift */; };
 		8699015B257BC361009010D7 /* GlobalCaseStatsEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699013B257BC2BB009010D7 /* GlobalCaseStatsEntry.swift */; };
 		86990164257BC4B9009010D7 /* GlobalCaseStatsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699015F257BC4B4009010D7 /* GlobalCaseStatsProvider.swift */; };
@@ -87,6 +86,17 @@
 		869901C2257BFC7E009010D7 /* CaseStatsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869901C1257BFC7E009010D7 /* CaseStatsGrid.swift */; };
 		869901CA257BFCAA009010D7 /* CaseStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869901C9257BFCAA009010D7 /* CaseStatsView.swift */; };
 		869901DA257BFD01009010D7 /* TitleDateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869901D9257BFD01009010D7 /* TitleDateHeaderView.swift */; };
+		86A103C9257F514D001028F6 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A103C8257F514D001028F6 /* SearchBar.swift */; };
+		86A103D9257F5184001028F6 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A103D8257F5184001028F6 /* SearchInteractor.swift */; };
+		86A103DE257F522D001028F6 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A103DD257F522D001028F6 /* SearchPresenter.swift */; };
+		86A103E3257F5361001028F6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A103E2257F5361001028F6 /* SearchView.swift */; };
+		86A103E8257F5697001028F6 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A103E7257F5697001028F6 /* SearchRouter.swift */; };
+		86DEA74D257E6D3800A3788C /* DetailGlobalStatsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEA74C257E6D3800A3788C /* DetailGlobalStatsInteractor.swift */; };
+		86DEA76C257E8DA800A3788C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8699012B257BC1B6009010D7 /* Assets.xcassets */; };
+		86DEA771257E901E00A3788C /* PreventionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEA770257E901E00A3788C /* PreventionView.swift */; };
+		86DEA772257E901E00A3788C /* PreventionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEA770257E901E00A3788C /* PreventionView.swift */; };
+		86DEA777257E929D00A3788C /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEA776257E929D00A3788C /* BannerView.swift */; };
+		86DEA778257E929D00A3788C /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEA776257E929D00A3788C /* BannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +173,14 @@
 		869901C1257BFC7E009010D7 /* CaseStatsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStatsGrid.swift; sourceTree = "<group>"; };
 		869901C9257BFCAA009010D7 /* CaseStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStatsView.swift; sourceTree = "<group>"; };
 		869901D9257BFD01009010D7 /* TitleDateHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDateHeaderView.swift; sourceTree = "<group>"; };
+		86A103C8257F514D001028F6 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		86A103D8257F5184001028F6 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		86A103DD257F522D001028F6 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		86A103E2257F5361001028F6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		86A103E7257F5697001028F6 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		86DEA74C257E6D3800A3788C /* DetailGlobalStatsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGlobalStatsInteractor.swift; sourceTree = "<group>"; };
+		86DEA770257E901E00A3788C /* PreventionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventionView.swift; sourceTree = "<group>"; };
+		86DEA776257E929D00A3788C /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +334,7 @@
 		86990044257B7948009010D7 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				86A103C4257F511A001028F6 /* Search */,
 				865F6E7E257D002F00D61D56 /* DetailGlobalStats */,
 				868247F3257C88D100439638 /* Detail */,
 				869900BB257B9BDD009010D7 /* Home */,
@@ -410,6 +429,8 @@
 			children = (
 				869900B7257B9A89009010D7 /* HomeInteractor.swift */,
 				86824803257C891C00439638 /* DetailInteractor.swift */,
+				86DEA74C257E6D3800A3788C /* DetailGlobalStatsInteractor.swift */,
+				86A103D8257F5184001028F6 /* SearchInteractor.swift */,
 			);
 			path = "Use Case";
 			sourceTree = "<group>";
@@ -445,6 +466,9 @@
 		86990062257B7B79009010D7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				86DEA770257E901E00A3788C /* PreventionView.swift */,
+				86DEA776257E929D00A3788C /* BannerView.swift */,
+				86A103C8257F514D001028F6 /* SearchBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -569,6 +593,40 @@
 			path = Widget;
 			sourceTree = "<group>";
 		};
+		86A103C4257F511A001028F6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				86A103C7257F5129001028F6 /* Router */,
+				86A103C6257F5124001028F6 /* Presenter */,
+				86A103C5257F5121001028F6 /* View */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		86A103C5257F5121001028F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				86A103E2257F5361001028F6 /* SearchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		86A103C6257F5124001028F6 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				86A103DD257F522D001028F6 /* SearchPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		86A103C7257F5129001028F6 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				86A103E7257F5697001028F6 /* SearchRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -679,6 +737,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86DEA76C257E8DA800A3788C /* Assets.xcassets in Resources */,
 				86990034257B78AC009010D7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -714,17 +773,25 @@
 				86990097257B8B01009010D7 /* CountryModel.swift in Sources */,
 				86990093257B8AFA009010D7 /* CountryCaseStatsModel.swift in Sources */,
 				86990032257B78AC009010D7 /* ContentView.swift in Sources */,
+				86DEA74D257E6D3800A3788C /* DetailGlobalStatsInteractor.swift in Sources */,
 				868247FF257C88FD00439638 /* DetailView.swift in Sources */,
+				86A103E3257F5361001028F6 /* SearchView.swift in Sources */,
+				86DEA777257E929D00A3788C /* BannerView.swift in Sources */,
+				86A103E8257F5697001028F6 /* SearchRouter.swift in Sources */,
 				869900D9257BA54A009010D7 /* Helper.swift in Sources */,
 				869900DD257BA8F3009010D7 /* GlobalStatsView.swift in Sources */,
 				86990085257B8AC3009010D7 /* GlobalCaseStatsResponse.swift in Sources */,
+				86A103DE257F522D001028F6 /* SearchPresenter.swift in Sources */,
 				868247F7257C88F000439638 /* DetailPresenter.swift in Sources */,
 				8699011A257BB92E009010D7 /* HomeRouter.swift in Sources */,
 				86990055257B7B40009010D7 /* CovidRepository.swift in Sources */,
 				8699009B257B8BA0009010D7 /* CountryMapper.swift in Sources */,
+				86A103D9257F5184001028F6 /* SearchInteractor.swift in Sources */,
 				8699004F257B7B29009010D7 /* RemoteDataSource.swift in Sources */,
 				865F6E82257D005500D61D56 /* DetailGlobalStatsView.swift in Sources */,
 				86990030257B78AC009010D7 /* Covid19StatsApp.swift in Sources */,
+				86A103C9257F514D001028F6 /* SearchBar.swift in Sources */,
+				86DEA771257E901E00A3788C /* PreventionView.swift in Sources */,
 				869900C9257B9F1B009010D7 /* HomeView.swift in Sources */,
 				865F6E8A257D006500D61D56 /* DetailGlobalStatsPresenter.swift in Sources */,
 				869900C5257B9EDE009010D7 /* String+Ext.swift in Sources */,
@@ -776,12 +843,14 @@
 				8699015B257BC361009010D7 /* GlobalCaseStatsEntry.swift in Sources */,
 				86990149257BC33B009010D7 /* CountryModel.swift in Sources */,
 				86990179257BF0A8009010D7 /* RemoteDataSource.swift in Sources */,
+				86DEA772257E901E00A3788C /* PreventionView.swift in Sources */,
 				8699014B257BC33B009010D7 /* String+Ext.swift in Sources */,
 				86990141257BC33B009010D7 /* CountryCaseStatsModel.swift in Sources */,
 				8699012A257BC1B2009010D7 /* Covid19StatsWidget.swift in Sources */,
 				86990144257BC33B009010D7 /* CountryResponse.swift in Sources */,
 				86990143257BC33B009010D7 /* Covid19APIError+Ext.swift in Sources */,
 				86990142257BC33B009010D7 /* CountryCaseStatsMapper.swift in Sources */,
+				86DEA778257E929D00A3788C /* BannerView.swift in Sources */,
 				86990145257BC33B009010D7 /* CountryMapper.swift in Sources */,
 				86990164257BC4B9009010D7 /* GlobalCaseStatsProvider.swift in Sources */,
 				869901DA257BFD01009010D7 /* TitleDateHeaderView.swift in Sources */,
@@ -791,7 +860,6 @@
 				869901BB257BF656009010D7 /* GlobalCaseStatsWidgetLarge.swift in Sources */,
 				86990146257BC33B009010D7 /* CountryCaseStatsResponse.swift in Sources */,
 				8699014A257BC33B009010D7 /* Helper.swift in Sources */,
-				8699014C257BC33B009010D7 /* GlobalCaseStatsMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
