@@ -19,11 +19,11 @@ protocol CovidRepositoryProtocol {
 
 final class CovidRepository: NSObject {
   
-  typealias CovidInstance = (RemoteDataSource) -> CovidRepository
+  typealias CovidInstance = (CovidDataSource) -> CovidRepository
   
-  fileprivate let remote: RemoteDataSource
+  fileprivate let remote: CovidDataSource
   
-  private init(remote: RemoteDataSource) {
+  private init(remote: CovidDataSource) {
     self.remote = remote
   }
   

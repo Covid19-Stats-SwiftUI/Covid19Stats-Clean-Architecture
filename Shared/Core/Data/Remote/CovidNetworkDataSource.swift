@@ -1,5 +1,5 @@
 //
-//  RemoteDataSource.swift
+//  CovidDataSource.swift
 //  Covid19Stats (iOS)
 //
 //  Created by Ari Supriatna on 05/12/20.
@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import Alamofire
 
-protocol RemoteDataSourceProtocol {
+protocol CovidDataSourceProtocol {
   
   func getGlobalCaseStats() -> AnyPublisher<GlobalCaseStatsResponse, Covid19APIError>
   func getCountryCaseStats(by caseType: Endpoints.CaseType) -> AnyPublisher<[CountryCaseStatsResponse], Covid19APIError>
@@ -18,15 +18,15 @@ protocol RemoteDataSourceProtocol {
   
 }
 
-final class RemoteDataSource: NSObject {
+final class CovidDataSource: NSObject {
   
   private override init() { }
   
-  static let sharedInstance: RemoteDataSource = RemoteDataSource()
+  static let sharedInstance: CovidDataSource = CovidDataSource()
   
 }
 
-extension RemoteDataSource: RemoteDataSourceProtocol {
+extension CovidDataSource: CovidDataSourceProtocol {
   
   func getGlobalCaseStats() -> AnyPublisher<GlobalCaseStatsResponse, Covid19APIError> {
     return Future<GlobalCaseStatsResponse, Covid19APIError> { completion in
