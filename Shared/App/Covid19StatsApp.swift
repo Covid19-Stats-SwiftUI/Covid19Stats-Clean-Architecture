@@ -11,11 +11,13 @@ import SwiftUI
 struct Covid19StatsApp: App {
   
   @StateObject var homePresenter = HomePresenter(homeUseCase: Injection().provideHome())
+  @StateObject var searchPresenter = SearchPresenter(searchUseCase: Injection().provideSearch())
   
   var body: some Scene {
     WindowGroup {
       ContentView()
         .environmentObject(homePresenter)
+        .environmentObject(searchPresenter)
     }
   }
 }
