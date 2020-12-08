@@ -8,27 +8,6 @@
 import WidgetKit
 import SwiftUI
 
-struct Covid19StatsWidgetEntryView: View {
-  
-  let entry: GlobalCaseStatsEntry
-  @Environment(\.widgetFamily) var family
-  
-  var body: some View {
-    switch family {
-    case .systemSmall:
-      EmptyView()
-    case .systemMedium:
-      GlobalCaseStatsWidgetMedium(entry: entry)
-    case .systemLarge:
-      GlobalCaseStatsWidgetLarge(entry: entry)
-    @unknown default:
-      EmptyView()
-    }
-  }
-  
-}
-
-@main
 struct Covid19StatsWidget: Widget {
   let kind: String = "Covid19StatsWidget"
   
@@ -36,9 +15,31 @@ struct Covid19StatsWidget: Widget {
     StaticConfiguration(kind: kind, provider: GlobalCaseStatsProvider()) { entry in
       Covid19StatsWidgetEntryView(entry: entry)
     }
-    .configurationDisplayName("My Widget")
-    .description("This is an example widget.")
+    .configurationDisplayName("Covid19 Stats Widget")
+    .description("Show Covid19 stats global")
     .supportedFamilies([.systemMedium, .systemLarge])
+  }
+}
+
+struct NewsWidget: Widget {
+  let kind: String = "NewsWidget"
+  
+  var body: some WidgetConfiguration {
+    StaticConfiguration(kind: kind, provider: NewsProvider()) { entry in
+      NewsWidgetEntryView(entry: entry)
+    }
+    .configurationDisplayName("News Widget")
+    .description("Show News about health")
+    .supportedFamilies([.systemMedium, .systemLarge])
+  }
+}
+
+@main
+struct Covid19StatsBundle: WidgetBundle {
+  @WidgetBundleBuilder
+  var body: some Widget {
+    Covid19StatsWidget()
+    NewsWidget()
   }
 }
 
@@ -48,7 +49,13 @@ struct Covid19StatsWidget_Previews: PreviewProvider {
       Covid19StatsWidgetEntryView(entry: .stub)
         .previewContext(WidgetPreviewContext(family: .systemMedium))
       
+      NewsWidgetEntryView(entry: .stub)
+        .previewContext(WidgetPreviewContext(family: .systemMedium))
+      
       Covid19StatsWidgetEntryView(entry: .stub)
+        .previewContext(WidgetPreviewContext(family: .systemLarge))
+      
+      NewsWidgetEntryView(entry: .stub)
         .previewContext(WidgetPreviewContext(family: .systemLarge))
     }
   }

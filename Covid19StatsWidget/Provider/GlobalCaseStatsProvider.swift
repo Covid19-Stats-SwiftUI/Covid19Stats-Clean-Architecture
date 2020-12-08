@@ -7,15 +7,12 @@
 
 import Foundation
 import WidgetKit
-import Combine
 
 struct GlobalCaseStatsProvider: TimelineProvider {
   
   typealias Entry = GlobalCaseStatsEntry
   
   let remote = RemoteDataSource.sharedInstance
-
-  private var cancellables: Set<AnyCancellable> = []
 
   func placeholder(in context: Context) -> GlobalCaseStatsEntry {
     .placeholder
