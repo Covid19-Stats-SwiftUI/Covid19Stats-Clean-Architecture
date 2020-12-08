@@ -16,7 +16,32 @@ struct DetailView: View {
       if let stats = presenter.stats {
         List {
           Section(header: Text("Stats of \(presenter.country.name)")) {
-            GlobalStatsView(totalStats: stats)
+            VStack(alignment: .leading, spacing: 16) {
+              Text("Confirmed")
+                .font(.title3)
+                .bold()
+              
+              Text(stats.confirmedText)
+                .fontWeight(.semibold)
+                .foregroundColor(Color("confirmedColor"))
+              
+              Text("Recovered")
+                .font(.title3)
+                .bold()
+              
+              Text(stats.recoveredText)
+                .fontWeight(.semibold)
+                .foregroundColor(Color("recoveredColor"))
+              
+              Text("Deaths")
+                .font(.title3)
+                .bold()
+              
+              Text(stats.deathText)
+                .fontWeight(.semibold)
+                .foregroundColor(Color("deathColor"))
+            }
+            .padding(.vertical)
           }
         }
         .listStyle(InsetGroupedListStyle())
