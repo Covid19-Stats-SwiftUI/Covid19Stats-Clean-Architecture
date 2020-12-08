@@ -8,13 +8,35 @@
 import SwiftUI
 
 struct SearchView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  
+  @ObservedObject var presenter: SearchPresenter
+  @State var searchText: String = ""
+  
+  var body: some View {
+    ZStack {
+      if let countries = presenter.countries {
+        SearchBar(text: $searchText) {
+          List(countries.filter({ (country) -> Bool in
+            if searchText == "" {
+              return true
+            } else {
+              return country.name.lowercased().contains(searchText.lowercased())
+            }
+          })) { country in
+            self.presenter.linkBuilder(for: country) {
+              Text(country.displayName)
+                .font(.system(size: 18))
+            }
+          }
+          .navigationTitle("Search Country")
+          .listStyle(PlainListStyle())
+        }
+      } else {
+        ProgressView()
+      }
     }
-}
-
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
+    .onAppear {
+      self.presenter.getCountries()
     }
+  }
 }
