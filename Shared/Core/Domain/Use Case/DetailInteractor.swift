@@ -11,14 +11,11 @@ import Combine
 protocol DetailUseCase {
   
   func getStatsByCountry() -> AnyPublisher<GlobalCaseStatsModel, Covid19APIError>
-//  var countryName: String { get }
   func getCountry() -> CountryModel
   
 }
 
 class DetailInteractor: DetailUseCase {
-  
-//  var countryName: String
   
   private let repository: CovidRepositoryProtocol
   private let country: CountryModel
