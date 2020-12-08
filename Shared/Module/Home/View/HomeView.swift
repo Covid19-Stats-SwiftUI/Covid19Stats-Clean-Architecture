@@ -10,66 +10,70 @@ import SwiftUI
 struct HomeView: View {
   
   @ObservedObject var presenter: HomePresenter
+  var width = UIScreen.main.bounds.width
   
   var body: some View {
-    NavigationView {
-      ZStack {
-        if let countries = presenter.countries,
-           let global = presenter.globalStats,
-           let confirmed = presenter.statsConfirmed,
-           let recovered = presenter.statsRecovered,
-           let death = presenter.statsDeaths {
-          List {
-            Section(header: Text("Global Stats 🌍")) {
-              GlobalStatsView(totalStats: global)
-            }
+    ZStack {
+      if let global = presenter.globalStats {
+        ScrollView {
+          VStack(alignment: .leading, spacing: 16) {
+            GlobalStatsView(presenter: presenter, totalStats: global)
             
-            Section(header: Text("Countries Daily Stats")) {
-              ForEach(countries.suffix(10)) { countryStat in
-                self.presenter.linkBuilder(for: countryStat) {
-                  Text(countryStat.displayName)
-                }
-              }
-            }
+            BannerView()
+              .padding(.vertical)
             
-            Section(header: Text("Confirmed Stats")) {
-              ForEach(confirmed.suffix(10).filter { $0.provinceState != "Unknown" }) { result in
-                Text("\(result.displayName): \(result.confirmed)")
-              }
-            }
+            Text("Are you feeling sick?")
+              .font(.system(size: 20, weight: .semibold))
             
-            Section(header: Text("Recovered Stats")) {
-              ForEach(recovered.suffix(10)) { result in
-                Text("\(result.displayName): \(result.recovered)")
-              }
-            }
+            Text("If you feel sick with any of covid-19 symptoms please call or SMS us immediately for help.")
+              .font(.system(size: 16, weight: .regular))
+              .foregroundColor(Color(#colorLiteral(red: 0.3803921569, green: 0.4078431373, blue: 0.5450980392, alpha: 1)))
             
-            Section(header: Text("Death Stats")) {
-              ForEach(death.suffix(10)) { result in
-                Text("\(result.displayName): \(result.deaths)")
+            HStack {
+              HStack {
+                Image("phone")
+                Text("Call Now")
+                  .foregroundColor(.white)
               }
+              .padding(.all)
+              .frame(width: (width / 2) - 24)
+              .background(Color.red)
+              .cornerRadius(8)
+              
+              Spacer()
+              
+              HStack {
+                Image("message")
+                Text("Send SMS")
+                  .foregroundColor(.white)
+              }
+              .padding(.all)
+              .frame(width: (width / 2) - 24)
+              .background(Color.blue)
+              .cornerRadius(8)
             }
+            .padding(.top)
+            
+            VStack(alignment: .leading, spacing: 24) {
+              Text("Prevention")
+                .font(.system(size: 20, weight: .semibold))
+              
+              PreventionView()
+            }
+            .padding(.vertical)
           }
-          .listStyle(InsetGroupedListStyle())
-        } else {
-          ProgressView()
+          .padding(.all)
+          .frame(maxWidth: .infinity)
         }
-        
+      } else {
+        ProgressView()
       }
-      .navigationTitle("Daily Summary")
-      .onAppear {
-        self.presenter.getCountries()
-        self.presenter.getGlobalCaseStats()
-        self.presenter.getCountryCaseStatsConfirmed()
-        self.presenter.getCountryCaseStatsRecovered()
-        self.presenter.getCountryCaseStatsDeath()
-      }
+      
+    }
+    .navigationTitle("Daily Summary")
+    .onAppear {
+      self.presenter.getGlobalCaseStats()
     }
   }
 }
 
-//struct HomeView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    HomeView(presenter: HomePresenter(homeUseCase: HomeInteractor(repository: T##CovidRepositoryProtocol)))
-//  }
-//}

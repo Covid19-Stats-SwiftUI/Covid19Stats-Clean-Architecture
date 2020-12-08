@@ -9,11 +9,11 @@ import SwiftUI
 
 class HomeRouter {
   
-  func makeDetailView(for country: CountryModel) -> some View {
-    let detailUseCase = Injection.init().provideDetail(for: country)
-    let presenter = DetailPresenter(detailUseCase: detailUseCase)
+  func makeDetailGlobalStatsView(by caseType: Endpoints.CaseType) -> some View {
+    let detailUseCase = Injection.init().provideDetailGlobalStats(by: caseType)
+    let presenter = DetailGlobalStatsPresenter(globalStatsUseCase: detailUseCase)
     
-    return DetailView(presenter: presenter)
+    return DetailGlobalStatsView(presenter: presenter, caseType: caseType)
   }
   
 }
