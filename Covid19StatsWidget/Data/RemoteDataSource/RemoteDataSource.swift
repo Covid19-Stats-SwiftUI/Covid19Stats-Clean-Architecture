@@ -10,6 +10,7 @@ import Foundation
 protocol RemoteDataSourceProtocol {
   
   func getGlobalCaseStats(completion: @escaping (Result<GlobalCaseStatsModel, Covid19APIError>) -> Void)
+  func getNewsTopHeadlines(completion: @escaping (Result<NewsResponse, Covid19APIError>) -> Void)
   
 }
 
@@ -25,6 +26,15 @@ final class RemoteDataSource: NSObject {
 }
 
 extension RemoteDataSource: RemoteDataSourceProtocol {
+  func getNewsTopHeadlines(completion: @escaping (Result<NewsResponse, Covid19APIError>) -> Void) {
+    guard let url = URL(string: "\(NewsEndpoints.Gets.topHeadlines.url)?country=id&category=health&apiKey=\(NewsAPIService.apiKey)") else {
+      completion(.failure(.invalidURL))
+      return
+    }
+    
+    executeDataTaskAndDecode(with: url, completion: completion)
+  }
+  
   
   func getGlobalCaseStats(completion: @escaping (Result<GlobalCaseStatsModel, Covid19APIError>) -> Void) {
     guard let url = URL(string: CovidEndpoints.Gets.global.url) else {
