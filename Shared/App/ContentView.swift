@@ -10,9 +10,31 @@ import SwiftUI
 struct ContentView: View {
   
   @EnvironmentObject var homePresenter: HomePresenter
+  @EnvironmentObject var searchPresenter: SearchPresenter
+  @State var selectedTab: String = "home"
   
   var body: some View {
-    HomeView(presenter: homePresenter)
+    TabView(selection: $selectedTab) {
+      NavigationView {
+        HomeView(presenter: homePresenter)
+      }
+      .tabItem {
+        VStack {
+          Image(systemName: "network")
+          Text("Global Stats")
+        }
+      }
+      .tag("home")
+      
+      SearchView(presenter: searchPresenter)
+        .tabItem {
+          VStack {
+            Image(systemName: "magnifyingglass")
+            Text("Search")
+          }
+        }
+        .tag("search")
+    }
   }
 }
 
