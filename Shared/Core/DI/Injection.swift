@@ -27,4 +27,16 @@ final class Injection: NSObject {
     return DetailInteractor(repository: repository, country: country)
   }
   
+  func provideDetailGlobalStats(by caseType: Endpoints.CaseType) -> DetailGlobalStatsUseCase {
+    let repository = provideRepository()
+    
+    return DetailGlobalStatsInteractor(repository: repository)
+  }
+  
+  func provideSearch() -> SearchUseCase {
+    let repository = provideRepository()
+    
+    return SearchInteractor(repository: repository)
+  }
+  
 }
