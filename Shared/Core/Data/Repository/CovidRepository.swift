@@ -13,17 +13,17 @@ protocol CovidRepositoryProtocol {
   func getGlobalCaseStats() -> AnyPublisher<GlobalCaseStatsModel, Covid19APIError>
   func getCountries() -> AnyPublisher<[CountryModel], Covid19APIError>
   func getStatsByCountry(country name: String) -> AnyPublisher<GlobalCaseStatsModel, Covid19APIError>
-  func getCountryCaseStats(by caseType: Endpoints.CaseType) -> AnyPublisher<[CountryCaseStatsModel], Covid19APIError>
+  func getCountryCaseStats(by caseType: CovidEndpoints.CaseType) -> AnyPublisher<[CountryCaseStatsModel], Covid19APIError>
   
 }
 
 final class CovidRepository: NSObject {
   
-  typealias CovidInstance = (CovidDataSource) -> CovidRepository
+  typealias CovidInstance = (CovidNetworkDataSource) -> CovidRepository
   
-  fileprivate let remote: CovidDataSource
+  fileprivate let remote: CovidNetworkDataSource
   
-  private init(remote: CovidDataSource) {
+  private init(remote: CovidNetworkDataSource) {
     self.remote = remote
   }
   
@@ -52,7 +52,7 @@ extension CovidRepository: CovidRepositoryProtocol {
       .eraseToAnyPublisher()
   }
   
-  func getCountryCaseStats(by caseType: Endpoints.CaseType) -> AnyPublisher<[CountryCaseStatsModel], Covid19APIError> {
+  func getCountryCaseStats(by caseType: CovidEndpoints.CaseType) -> AnyPublisher<[CountryCaseStatsModel], Covid19APIError> {
     self.remote.getCountryCaseStats(by: caseType)
       .map { CountryCaseStatsMapper.mapCountryCaseStatsResponseToDomains(input: $0) }
       .eraseToAnyPublisher()

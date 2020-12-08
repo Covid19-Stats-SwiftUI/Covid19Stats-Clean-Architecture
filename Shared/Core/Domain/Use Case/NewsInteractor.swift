@@ -6,3 +6,24 @@
 //
 
 import Foundation
+import Combine
+
+protocol NewsUseCase {
+  
+  func getNews() -> AnyPublisher<[NewsModel], NewsAPIError>
+  
+}
+
+class NewsInteractor: NewsUseCase {
+  
+  private let repository: NewsRepositoryProtocol
+  
+  required init(repository: NewsRepositoryProtocol) {
+    self.repository = repository
+  }
+  
+  func getNews() -> AnyPublisher<[NewsModel], NewsAPIError> {
+    return repository.getNews()
+  }
+  
+}

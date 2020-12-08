@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailGlobalStatsView: View {
   
   @ObservedObject var presenter: DetailGlobalStatsPresenter
-  var caseType: Endpoints.CaseType
+  var caseType: CovidEndpoints.CaseType
   
   var titleHeader: String {
     switch caseType {
@@ -48,7 +48,7 @@ struct DetailGlobalStatsView: View {
 struct DisplayName: View {
   
   var stats: CountryCaseStatsModel
-  var caseType: Endpoints.CaseType
+  var caseType: CovidEndpoints.CaseType
   
   var totalCase: Int {
     switch caseType {

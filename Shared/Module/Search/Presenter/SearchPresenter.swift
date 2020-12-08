@@ -16,7 +16,7 @@ class SearchPresenter: ObservableObject {
   
   @Published var isLoadingState = false
   @Published var errorMessage: String = ""
-  @Published var countries: [CountryModel] = []
+  @Published var countries: [CountryModel]?
   
   init(searchUseCase: SearchUseCase) {
     self.searchUseCase = searchUseCase

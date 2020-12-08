@@ -8,13 +8,33 @@
 import SwiftUI
 
 struct NewsView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  
+  @ObservedObject var presenter: NewsPresenter
+  @State var isShowSafari: Bool = false
+  @State var newsUrl: String = "https://google.com"
+  
+  var body: some View {
+    ZStack {
+      if let news = presenter.news {
+        List(news) { result in
+          NewsRowView(news: result)
+            .padding(.vertical, 8)
+            .onTapGesture {
+              self.isShowSafari = true
+              self.newsUrl = result.url
+            }
+        }
+        .listStyle(InsetGroupedListStyle())
+        .sheet(isPresented: $isShowSafari) {
+          SafariView(url: URL(string: self.newsUrl)!)
+        }
+      } else {
+        ProgressView()
+      }
     }
-}
-
-struct NewsView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewsView()
+    .navigationTitle("News")
+    .onAppear {
+      self.presenter.getNews()
     }
+  }
 }

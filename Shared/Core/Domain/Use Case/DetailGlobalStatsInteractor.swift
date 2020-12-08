@@ -10,7 +10,7 @@ import Combine
 
 protocol DetailGlobalStatsUseCase {
 
-  func getDetailGlobalStats(by caseType: Endpoints.CaseType) -> AnyPublisher<[CountryCaseStatsModel], Covid19APIError>
+  func getDetailGlobalStats(by caseType: CovidEndpoints.CaseType) -> AnyPublisher<[CountryCaseStatsModel], Covid19APIError>
 
 }
 
@@ -22,7 +22,7 @@ class DetailGlobalStatsInteractor: DetailGlobalStatsUseCase {
     self.repository = repository
   }
 
-  func getDetailGlobalStats(by caseType: Endpoints.CaseType) -> AnyPublisher<[CountryCaseStatsModel], Covid19APIError> {
+  func getDetailGlobalStats(by caseType: CovidEndpoints.CaseType) -> AnyPublisher<[CountryCaseStatsModel], Covid19APIError> {
     return repository.getCountryCaseStats(by: caseType)
   }
 

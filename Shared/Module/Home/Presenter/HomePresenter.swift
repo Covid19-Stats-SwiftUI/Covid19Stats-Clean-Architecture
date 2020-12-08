@@ -42,7 +42,7 @@ class HomePresenter: ObservableObject {
   }
   
   func linkBuilderDetailGlobalStats<Content: View>(
-    by caseType: Endpoints.CaseType,
+    by caseType: CovidEndpoints.CaseType,
     isActive: Binding<Bool>,
     @ViewBuilder content: () -> Content
   ) -> some View {

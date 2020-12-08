@@ -11,6 +11,8 @@ struct ContentView: View {
   
   @EnvironmentObject var homePresenter: HomePresenter
   @EnvironmentObject var searchPresenter: SearchPresenter
+  @EnvironmentObject var newsPresenter: NewsPresenter
+  
   @State var selectedTab: String = "home"
   
   var body: some View {
@@ -34,6 +36,17 @@ struct ContentView: View {
           }
         }
         .tag("search")
+      
+      NavigationView {
+        NewsView(presenter: newsPresenter)
+      }
+      .tabItem {
+        VStack {
+          Image(systemName: "newspaper")
+          Text("News")
+        }
+      }
+      .tag("news")
     }
   }
 }
