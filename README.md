@@ -4,7 +4,7 @@
 * [ ] Add Realm Database
 * [x] Add feature search country
 * [ ] Add feature offline
-* [ ] Add feature news
+* [x] Add feature news
 * [x] WidgetKit Static for CovidStats
 * [ ] WidgetKit with Intent + SiriKit for CovidStats
 * [ ] WidgetKit with Deeplink for CovidStats

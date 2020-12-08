@@ -21,7 +21,7 @@ class DetailGlobalStatsPresenter: ObservableObject {
     self.globalStatsUseCase = globalStatsUseCase
   }
   
-  func getDetailGlobalStats(by caseType: Endpoints.CaseType) {
+  func getDetailGlobalStats(by caseType: CovidEndpoints.CaseType) {
     isLoadingState = true
     
     globalStatsUseCase.getDetailGlobalStats(by: caseType)

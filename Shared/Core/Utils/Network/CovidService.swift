@@ -1,5 +1,5 @@
 //
-//  APICall.swift
+//  CovidService.swift
 //  Covid19Stats (iOS)
 //
 //  Created by Ari Supriatna on 05/12/20.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct API {
+struct CovidService {
   
   static let baseUrl = "https://covid19.mathdro.id/api"
   
@@ -19,7 +19,7 @@ protocol Endpoint {
   
 }
 
-enum Endpoints {
+enum CovidEndpoints {
   
   enum Gets: Endpoint {
     case global
@@ -28,9 +28,9 @@ enum Endpoints {
     
     public var url: String {
       switch self {
-      case .global: return "\(API.baseUrl)"
-      case .countryStats: return "\(API.baseUrl)/"
-      case .country: return "\(API.baseUrl)/countries/"
+      case .global: return "\(CovidService.baseUrl)"
+      case .countryStats: return "\(CovidService.baseUrl)/"
+      case .country: return "\(CovidService.baseUrl)/countries/"
       }
     }
   }

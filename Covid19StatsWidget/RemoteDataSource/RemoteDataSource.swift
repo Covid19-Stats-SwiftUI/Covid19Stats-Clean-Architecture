@@ -27,7 +27,7 @@ final class RemoteDataSource: NSObject {
 extension RemoteDataSource: RemoteDataSourceProtocol {
   
   func getGlobalCaseStats(completion: @escaping (Result<GlobalCaseStatsModel, Covid19APIError>) -> Void) {
-    guard let url = URL(string: Endpoints.Gets.global.url) else {
+    guard let url = URL(string: CovidEndpoints.Gets.global.url) else {
       completion(.failure(.invalidURL))
       return
     }

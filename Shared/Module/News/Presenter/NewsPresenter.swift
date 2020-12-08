@@ -1,31 +1,30 @@
 //
-//  SearchPresenter.swift
+//  NewsPresenter.swift
 //  Covid19Stats (iOS)
 //
 //  Created by Ari Supriatna on 08/12/20.
 //
 
-import SwiftUI
 import Combine
+import SwiftUI
 
-class SearchPresenter: ObservableObject {
+class NewsPresenter: ObservableObject {
   
-  private let router = SearchRouter()
-  private let searchUseCase: SearchUseCase
+  private let newsUseCase: NewsUseCase
   private var cancellables: Set<AnyCancellable> = []
   
   @Published var isLoadingState = false
   @Published var errorMessage: String = ""
-  @Published var countries: [CountryModel]?
+  @Published var news: [NewsModel]?
   
-  init(searchUseCase: SearchUseCase) {
-    self.searchUseCase = searchUseCase
+  init(newsUseCase: NewsUseCase) {
+    self.newsUseCase = newsUseCase
   }
   
-  func getCountries() {
+  func getNews() {
     isLoadingState = true
     
-    searchUseCase.getCountries()
+    newsUseCase.getNews()
       .receive(on: RunLoop.main)
       .sink(receiveCompletion: { error in
         switch error {
@@ -36,18 +35,9 @@ class SearchPresenter: ObservableObject {
           self.isLoadingState = false
         }
       }, receiveValue: { result in
-        self.countries = result
+        self.news = result
       })
       .store(in: &cancellables)
-  }
-  
-  func linkBuilder<Content: View>(
-    for country: CountryModel,
-    @ViewBuilder content: () -> Content
-  ) -> some View {
-    NavigationLink(destination: router.makeDetailView(for: country)) {
-      content()
-    }
   }
   
 }
