@@ -1,25 +1,31 @@
 //
-//  NewsModel.swift
-//  Covid19StatsWidgetExtension
+//  NewsResponse.swift
+//  Covid19Stats (iOS)
 //
-//  Created by Ari Supriatna on 09/12/20.
+//  Created by Ari Supriatna on 08/12/20.
 //
 
 import Foundation
 
 struct NewsResponse: Decodable {
-  let articles: [NewsModel]
+  let articles: [News]
 }
 
-struct NewsModel: Decodable, Hashable {
-  static func == (lhs: NewsModel, rhs: NewsModel) -> Bool {
-    lhs.author == rhs.author
+struct News: Decodable, Hashable {
+  static func == (lhs: News, rhs: News) -> Bool {
+    return lhs.author == rhs.author
   }
   
   func hash(into hasher: inout Hasher) {
+    hasher.combine(author)
     hasher.combine(title)
+    hasher.combine(description)
+    hasher.combine(url)
+    hasher.combine(urlToImage)
+    hasher.combine(content)
   }
-
+  
+  
   let author: String?
   let title: String?
   let description: String?
@@ -36,9 +42,9 @@ struct Source: Decodable {
   
 }
 
-extension NewsModel {
+extension News {
   
-  static var stub: NewsModel {
+  static var stub: News {
     .init(
       author: "ABC Australia",
       title: "Vaksin COVID-19 yang Mulai Disuntikkan Pekan Ini, Adakah Efek Sampingnya? - detikNews",

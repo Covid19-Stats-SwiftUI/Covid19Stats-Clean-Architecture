@@ -50,7 +50,7 @@ struct GlobalCaseStatsProvider: TimelineProvider {
     remote.getGlobalCaseStats { (result) in
       switch result {
       case .success(let globalStats):
-        let entry = GlobalCaseStatsEntry(date: Date(), globalStats: .init(confirmed: globalStats.confirmed, recovered: globalStats.recovered, deaths: globalStats.deaths))
+        let entry = GlobalCaseStatsEntry(date: Date(), globalStats: .init(title: "Global 🌍", confirmed: globalStats.confirmed, recovered: globalStats.recovered, deaths: globalStats.deaths))
         completion(.success(entry))
       case .failure(let error):
         completion(.failure(error))

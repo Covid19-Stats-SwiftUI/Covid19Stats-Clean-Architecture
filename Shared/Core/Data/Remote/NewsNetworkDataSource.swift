@@ -36,7 +36,6 @@ extension NewsNetworkDataSource: NewsNetworkDataSourceProtocol {
       AF.request(url)
         .validate()
         .responseDecodable(of: NewsResponse.self) { response in
-          debugPrint("Response getNews() => \(response.result)")
           switch response.result {
           case .success(let result):
             completion(.success(result.articles))

@@ -12,9 +12,9 @@ struct Covid19StatsWidget: Widget {
   let kind: String = "Covid19StatsWidget"
   
   var body: some WidgetConfiguration {
-    StaticConfiguration(kind: kind, provider: GlobalCaseStatsProvider()) { entry in
+    IntentConfiguration(kind: kind, intent: SelectCountryIntent.self, provider: GlobalCaseStatsIntentTimelineProvider(), content: { (entry) in
       Covid19StatsWidgetEntryView(entry: entry)
-    }
+    })
     .configurationDisplayName("Covid19 Stats Widget")
     .description("Show Covid19 stats global")
     .supportedFamilies([.systemMedium, .systemLarge])

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CaseStatsGrid: View {
   
-  let totalCount: GlobalCaseStatsModel
+  let totalCount: GlobalCaseStatsResponse
   
   var body: some View {
     HStack(spacing: 0) {
