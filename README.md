@@ -6,7 +6,7 @@
 * [ ] Add feature offline
 * [x] Add feature news
 * [x] WidgetKit Static for CovidStats
-* [ ] WidgetKit with Intent + SiriKit for CovidStats
+* [x] WidgetKit with Intent + SiriKit for CovidStats
 * [ ] WidgetKit with Deeplink for CovidStats
 * [x] WidgetKit Static for News
 * [ ] WidgetKit with Intent + SiriKit for News

@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct DetailGlobalStatsView: View {
   
   @ObservedObject var presenter: DetailGlobalStatsPresenter
   var caseType: CovidEndpoints.CaseType
+  @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 25.7617, longitude: 80.1918), span: MKCoordinateSpan(latitudeDelta: 100, longitudeDelta: 100)
+  )
   
   var titleHeader: String {
     switch caseType {
@@ -23,17 +26,31 @@ struct DetailGlobalStatsView: View {
     }
   }
   
+  var tintColor: Color {
+    switch caseType {
+    case .confirmed:
+      return Color("confirmedColor")
+    case .recovered:
+      return Color("recoveredColor")
+    case .deaths:
+      return Color("deathColor")
+    }
+  }
+  
   var body: some View {
     ZStack {
       if presenter.isLoadingState {
         ProgressView()
       } else {
-        List {
-          ForEach(presenter.stats.suffix(20)) { result in
-            DisplayName(stats: result, caseType: caseType)
-          }
+//        List {
+//          ForEach(presenter.stats.suffix(20)) { result in
+//            DisplayName(stats: result, caseType: caseType)
+//          }
+//        }
+//        .listStyle(InsetGroupedListStyle())
+        Map(coordinateRegion: $region, annotationItems: presenter.stats) { country in
+          MapMarker(coordinate: CLLocationCoordinate2D(latitude: country.lat, longitude: country.long), tint: tintColor)
         }
-        .listStyle(InsetGroupedListStyle())
       }
     }
     .navigationTitle(titleHeader)

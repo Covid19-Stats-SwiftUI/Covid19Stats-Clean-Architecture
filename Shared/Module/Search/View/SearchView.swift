@@ -31,6 +31,7 @@ struct SearchView: View {
           .navigationTitle("Search Country")
           .listStyle(PlainListStyle())
         }
+        .ignoresSafeArea()
       } else {
         ProgressView()
       }

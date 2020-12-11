@@ -10,7 +10,7 @@ import WidgetKit
 
 struct NewsRowView: View {
   
-  var news: NewsModel
+  var news: News
   
   var body: some View {
     HStack {

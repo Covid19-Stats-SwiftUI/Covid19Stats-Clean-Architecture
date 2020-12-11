@@ -12,7 +12,7 @@ struct NewsEntry: TimelineEntry {
   
   var date: Date
   var isPlaceholder = false
-  var news: [NewsModel]
+  var news: [News]
   
 }
 

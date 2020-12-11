@@ -14,7 +14,7 @@ struct GlobalCaseStatsWidgetLarge: View {
   
   var body: some View {
     VStack(spacing: 0) {
-      TitleDateHeaderView(title: "Global Stats 🌍", date: entry.date)
+      TitleDateHeaderView(title: entry.globalStats.title ?? "Global 🌍", date: entry.date)
         .padding(.vertical, 16)
         .padding(.horizontal)
       Divider()

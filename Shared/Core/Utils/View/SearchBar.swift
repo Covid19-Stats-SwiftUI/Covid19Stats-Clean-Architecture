@@ -15,6 +15,7 @@ struct SearchBar<Content: View>: UIViewControllerRepresentable {
   func makeUIViewController(context: Context) -> UINavigationController {
     let navigationController = UINavigationController(rootViewController: context.coordinator.rootViewController)
     navigationController.navigationBar.prefersLargeTitles = true
+    navigationController.navigationBar.topItem?.hidesSearchBarWhenScrolling = false
     
     context.coordinator.searchController.searchBar.delegate = context.coordinator
     
