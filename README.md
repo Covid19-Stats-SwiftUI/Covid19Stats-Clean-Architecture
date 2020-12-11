@@ -9,7 +9,7 @@
 * [x] WidgetKit with Intent + SiriKit for CovidStats
 * [ ] WidgetKit with Deeplink for CovidStats
 * [x] WidgetKit Static for News
-* [ ] WidgetKit with Intent + SiriKit for Nes
+* [ ] WidgetKit with Intent + SiriKit for News
 * [ ] WidgetKit with Deeplink for News
 * [ ] App Clip
 * [ ] Support iPadOS
