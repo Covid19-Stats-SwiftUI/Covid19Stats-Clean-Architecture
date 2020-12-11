@@ -7,13 +7,32 @@
 
 import Intents
 
-class IntentHandler: INExtension {
-    
-    override func handler(for intent: INIntent) -> Any {
-        // This is the default implementation.  If you want different objects to handle different intents,
-        // you can override this and return the handler you want for that particular intent.
-        
-        return self
+class IntentHandler: INExtension, SelectCountryIntentHandling {
+  
+  func provideCountryOptionsCollection(for intent: SelectCountryIntent, with completion: @escaping (INObjectCollection<CountryParam>?, Error?) -> Void) {
+    RemoteDataSource.sharedInstance.getAllCountries { (result) in
+      switch result {
+      case .success(let countries):
+        let countryParams = countries.countries.map { CountryParam(country: $0) }
+        completion(
+          INObjectCollection(sections: [
+            INObjectSection(title: "Global", items: [CountryParam.global]),
+            INObjectSection(title: "Countries", items: countryParams)
+          ]), nil
+        )
+      case .failure:
+        completion(
+          INObjectCollection(sections: [
+            INObjectSection(title: "Global", items: [CountryParam.global]),
+            INObjectSection(title: "Countries", items: [])
+          ]), nil
+        )
+      }
     }
-    
+  }
+
+  override func handler(for intent: INIntent) -> Any {
+    return self
+  }
+  
 }

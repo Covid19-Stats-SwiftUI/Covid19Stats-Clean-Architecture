@@ -6,24 +6,24 @@
 //
 
 import Foundation
-import WidgetKit
+import WidgetKit 
 
 struct GlobalCaseStatsEntry: TimelineEntry {
   
   var date: Date
   var isPlaceholder = false
-  let globalStats: GlobalCaseStatsModel
+  let globalStats: GlobalCaseStatsResponse
   
 }
 
 extension GlobalCaseStatsEntry {
   
   static var stub: GlobalCaseStatsEntry {
-    .init(date: Date(), globalStats: GlobalCaseStatsModel(confirmed: GlobalCaseStatsModel.ValueModel(value: 100), recovered: GlobalCaseStatsModel.ValueModel(value: 100), deaths: GlobalCaseStatsModel.ValueModel(value: 100)))
+    .init(date: Date(), globalStats: GlobalCaseStatsResponse(title: "Global 🌍", confirmed: GlobalCaseStatsResponse.ValueResponse(value: 100), recovered: GlobalCaseStatsResponse.ValueResponse(value: 100), deaths: GlobalCaseStatsResponse.ValueResponse(value: 100)))
   }
   
   static var placeholder: GlobalCaseStatsEntry {
-    .init(date: Date(), isPlaceholder: true, globalStats: .init(confirmed: GlobalCaseStatsModel.ValueModel(value: 100), recovered: GlobalCaseStatsModel.ValueModel(value: 100), deaths: GlobalCaseStatsModel.ValueModel(value: 100)))
+    .init(date: Date(), isPlaceholder: true, globalStats: .init(title: "-", confirmed: GlobalCaseStatsResponse.ValueResponse(value: 100), recovered: GlobalCaseStatsResponse.ValueResponse(value: 100), deaths: GlobalCaseStatsResponse .ValueResponse(value: 100)))
   }
   
 }
