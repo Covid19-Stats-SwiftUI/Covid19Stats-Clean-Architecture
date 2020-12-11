@@ -118,6 +118,11 @@
 		86E34F77257FFC0100CC3A23 /* NewsWidgetLarge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E34F76257FFC0100CC3A23 /* NewsWidgetLarge.swift */; };
 		86E34F85258008B400CC3A23 /* NewsWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E34F84258008B400CC3A23 /* NewsWidgetEntryView.swift */; };
 		86E34F8A258008F800CC3A23 /* Covid19StatsWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E34F89258008F800CC3A23 /* Covid19StatsWidgetEntryView.swift */; };
+		86EA94D22583F6FD0053B14B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 86EA94D12583F6FD0053B14B /* Realm */; };
+		86EA94D42583F6FD0053B14B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86EA94D32583F6FD0053B14B /* RealmSwift */; };
+		86EA94D9258401410053B14B /* NewsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EA94D8258401410053B14B /* NewsEntity.swift */; };
+		86EA94DE258401540053B14B /* NewsLocaleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EA94DD258401540053B14B /* NewsLocaleDataSource.swift */; };
+		86EA94E32584033F0053B14B /* DatabaseError+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EA94E22584033F0053B14B /* DatabaseError+Ext.swift */; };
 		86E34F9D258114EE00CC3A23 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E34F9C258114EE00CC3A23 /* StatsView.swift */; };
 		86E34FA6258139E700CC3A23 /* Covid19Stats.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 86E34FA5258139E700CC3A23 /* Covid19Stats.intentdefinition */; };
 		86E34FB125813BD600CC3A23 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E34FB025813BD600CC3A23 /* IntentHandler.swift */; };
@@ -250,6 +255,9 @@
 		86E34F76257FFC0100CC3A23 /* NewsWidgetLarge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWidgetLarge.swift; sourceTree = "<group>"; };
 		86E34F84258008B400CC3A23 /* NewsWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWidgetEntryView.swift; sourceTree = "<group>"; };
 		86E34F89258008F800CC3A23 /* Covid19StatsWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid19StatsWidgetEntryView.swift; sourceTree = "<group>"; };
+		86EA94D8258401410053B14B /* NewsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsEntity.swift; sourceTree = "<group>"; };
+		86EA94DD258401540053B14B /* NewsLocaleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLocaleDataSource.swift; sourceTree = "<group>"; };
+		86EA94E22584033F0053B14B /* DatabaseError+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseError+Ext.swift"; sourceTree = "<group>"; };
 		86E34F9C258114EE00CC3A23 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		86E34FA5258139E700CC3A23 /* Covid19Stats.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Covid19Stats.intentdefinition; sourceTree = "<group>"; };
 		86E34FAE25813BD600CC3A23 /* Covid19StatsIntentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Covid19StatsIntentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,6 +271,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86EA94D42583F6FD0053B14B /* RealmSwift in Frameworks */,
+				86EA94D22583F6FD0053B14B /* Realm in Frameworks */,
 				86A10445257F91B6001028F6 /* SDWebImageSwiftUI in Frameworks */,
 				869900A8257B9011009010D7 /* Alamofire in Frameworks */,
 			);
@@ -492,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				8699004C257B7B09009010D7 /* Entity */,
+				86EA94DD258401540053B14B /* NewsLocaleDataSource.swift */,
 			);
 			path = Locale;
 			sourceTree = "<group>";
@@ -499,6 +510,7 @@
 		8699004C257B7B09009010D7 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				86EA94D8258401410053B14B /* NewsEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -572,6 +584,7 @@
 				869900B3257B9381009010D7 /* Covid19APIError+Ext.swift */,
 				869900C4257B9EDE009010D7 /* String+Ext.swift */,
 				86A1040E257F84F5001028F6 /* NewsAPIError+Ext.swift */,
+				86EA94E22584033F0053B14B /* DatabaseError+Ext.swift */,
 				862AE12E25837317001BF97E /* CountryParam+Ext.swift */,
 			);
 			path = Extension;
@@ -878,6 +891,8 @@
 			packageProductDependencies = (
 				869900A7257B9011009010D7 /* Alamofire */,
 				86A10444257F91B6001028F6 /* SDWebImageSwiftUI */,
+				86EA94D12583F6FD0053B14B /* Realm */,
+				86EA94D32583F6FD0053B14B /* RealmSwift */,
 			);
 			productName = "Covid19Stats (iOS)";
 			productReference = 86990024257B78AC009010D7 /* Covid19Stats.app */;
@@ -974,6 +989,7 @@
 			packageReferences = (
 				869900A6257B9011009010D7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				86A10443257F91B6001028F6 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				86EA94D02583F6FD0053B14B /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 86990025257B78AC009010D7 /* Products */;
 			projectDirPath = "";
@@ -1044,10 +1060,13 @@
 				86DEA777257E929D00A3788C /* BannerView.swift in Sources */,
 				86A103E8257F5697001028F6 /* SearchRouter.swift in Sources */,
 				86A1040A257F8372001028F6 /* NewsService.swift in Sources */,
+				86EA94DE258401540053B14B /* NewsLocaleDataSource.swift in Sources */,
 				869900D9257BA54A009010D7 /* Helper.swift in Sources */,
 				869900DD257BA8F3009010D7 /* GlobalStatsView.swift in Sources */,
+				86EA94E32584033F0053B14B /* DatabaseError+Ext.swift in Sources */,
 				86A1041D257F86C7001028F6 /* NewsRepository.swift in Sources */,
 				86990085257B8AC3009010D7 /* GlobalCaseStatsResponse.swift in Sources */,
+				86EA94D9258401410053B14B /* NewsEntity.swift in Sources */,
 				86A103DE257F522D001028F6 /* SearchPresenter.swift in Sources */,
 				86A1043F257F8E1D001028F6 /* NewsRowView.swift in Sources */,
 				868247F7257C88F000439638 /* DetailPresenter.swift in Sources */,
@@ -1550,6 +1569,14 @@
 				minimumVersion = 1.5.0;
 			};
 		};
+		86EA94D02583F6FD0053B14B /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1567,6 +1594,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 86A10443257F91B6001028F6 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		86EA94D12583F6FD0053B14B /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86EA94D02583F6FD0053B14B /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		86EA94D32583F6FD0053B14B /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86EA94D02583F6FD0053B14B /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

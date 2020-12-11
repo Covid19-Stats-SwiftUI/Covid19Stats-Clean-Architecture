@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 final class Injection: NSObject {
   
@@ -16,9 +17,11 @@ final class Injection: NSObject {
   }
   
   private func provideNewsRepository() -> NewsRepositoryProtocol {
+    let realm = try? Realm()
     let remote: NewsNetworkDataSource = NewsNetworkDataSource.sharedInstance
+    let locale: NewsLocaleDataSource = NewsLocaleDataSource.sharedInstance(realm)
     
-    return NewsRepository.sharedInstance(remote)
+    return NewsRepository.sharedInstance(locale, remote)
   }
   
   func provideHome() -> HomeUseCase {
