@@ -10,7 +10,7 @@ import Combine
 
 protocol NewsUseCase {
   
-  func getNews() -> AnyPublisher<[NewsModel], NewsAPIError>
+  func getNews() -> AnyPublisher<[NewsModel], Error>
   
 }
 
@@ -22,7 +22,7 @@ class NewsInteractor: NewsUseCase {
     self.repository = repository
   }
   
-  func getNews() -> AnyPublisher<[NewsModel], NewsAPIError> {
+  func getNews() -> AnyPublisher<[NewsModel], Error> {
     return repository.getNews()
   }
   

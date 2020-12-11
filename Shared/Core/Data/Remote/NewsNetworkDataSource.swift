@@ -11,7 +11,7 @@ import Alamofire
 
 protocol NewsNetworkDataSourceProtocol {
   
-  func getNews() -> AnyPublisher<[News], NewsAPIError>
+  func getNews() -> AnyPublisher<[News], Error>
   
 }
 
@@ -25,8 +25,8 @@ final class NewsNetworkDataSource: NSObject {
 
 extension NewsNetworkDataSource: NewsNetworkDataSourceProtocol {
   
-  func getNews() -> AnyPublisher<[News], NewsAPIError> {
-    return Future<[News], NewsAPIError> { completion in
+  func getNews() -> AnyPublisher<[News], Error> {
+    return Future<[News], Error> { completion in
       
       guard
         let url = URL(string: "\(NewsEndpoints.Gets.topHeadlines.url)?country=id&category=health&apiKey=\(NewsAPIService.apiKey)") else {
@@ -41,7 +41,7 @@ extension NewsNetworkDataSource: NewsNetworkDataSourceProtocol {
           case .success(let result):
             completion(.success(result.articles))
           case .failure:
-            completion(.failure(.invalidSerialization))
+            completion(.failure(NewsAPIError.invalidSerialization))
           }
         }
       
