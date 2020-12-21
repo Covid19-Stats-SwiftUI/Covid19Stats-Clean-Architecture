@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if !APPCLIP
 import RealmSwift
+#endif
 
 final class Injection: NSObject {
   
@@ -16,6 +18,7 @@ final class Injection: NSObject {
     return CovidRepository.sharedInstance(remote)
   }
   
+  #if !APPCLIP
   private func provideNewsRepository() -> NewsRepositoryProtocol {
     let realm = try? Realm()
     let remote: NewsNetworkDataSource = NewsNetworkDataSource.sharedInstance
@@ -23,6 +26,7 @@ final class Injection: NSObject {
     
     return NewsRepository.sharedInstance(locale, remote)
   }
+  #endif
   
   func provideHome() -> HomeUseCase {
     let repository = provideCovidRepository()
@@ -48,10 +52,12 @@ final class Injection: NSObject {
     return SearchInteractor(repository: repository)
   }
   
+  #if !APPCLIP
   func provideNews() -> NewsUseCase {
     let repository = provideNewsRepository()
     
     return NewsInteractor(repository: repository)
   }
+  #endif
   
 }
