@@ -21,4 +21,9 @@ struct CountryModel: Equatable, Identifiable {
     return "\(name) \(iso2.flag)"
   }
   
+  var url: URL {
+    let string = "stats://search?id=\(id)&name=\(name)&iso=\(iso2)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+    return URL(string: string)!
+  }
+  
 }
