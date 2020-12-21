@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Covid19StatsAppClip.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>Covid19StatsIntentExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -29,26 +34,41 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
 		</dict>
 		<key>GettingStarted (Playground) 2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>6</integer>
 		</dict>
 		<key>GettingStarted (Playground).xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>4</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>86990023257B78AC009010D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8699002B257B78AC009010D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>86990122257BC1B2009010D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>86E34FAD25813BD600CC3A23</key>
 		<dict>
 			<key>primary</key>
 			<true/>

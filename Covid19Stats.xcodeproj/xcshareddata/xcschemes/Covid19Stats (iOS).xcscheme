@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8699002B257B78AC009010D7"
+               BlueprintIdentifier = "86990023257B78AC009010D7"
                BuildableName = "Covid19Stats.app"
-               BlueprintName = "Covid19Stats (macOS)"
+               BlueprintName = "Covid19Stats (iOS)"
                ReferencedContainer = "container:Covid19Stats.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,12 +44,15 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8699002B257B78AC009010D7"
+            BlueprintIdentifier = "86990023257B78AC009010D7"
             BuildableName = "Covid19Stats.app"
-            BlueprintName = "Covid19Stats (macOS)"
+            BlueprintName = "Covid19Stats (iOS)"
             ReferencedContainer = "container:Covid19Stats.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "../../Shared/Core/Store/Configuration.storekit">
+      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -61,9 +64,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8699002B257B78AC009010D7"
+            BlueprintIdentifier = "86990023257B78AC009010D7"
             BuildableName = "Covid19Stats.app"
-            BlueprintName = "Covid19Stats (macOS)"
+            BlueprintName = "Covid19Stats (iOS)"
             ReferencedContainer = "container:Covid19Stats.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
