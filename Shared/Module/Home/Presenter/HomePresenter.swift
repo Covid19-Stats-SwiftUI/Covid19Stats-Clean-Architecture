@@ -41,6 +41,7 @@ class HomePresenter: ObservableObject {
       .store(in: &cancellables)
   }
   
+  #if !APPCLIP
   func linkBuilderDetailGlobalStats<Content: View>(
     by caseType: CovidEndpoints.CaseType,
     isActive: Binding<Bool>,
@@ -49,5 +50,6 @@ class HomePresenter: ObservableObject {
     NavigationLink(
       destination: router.makeDetailGlobalStatsView(by: caseType), isActive: isActive) { content() }
   }
+  #endif
   
 }

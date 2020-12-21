@@ -9,11 +9,13 @@ import SwiftUI
 
 class HomeRouter {
   
+  #if !APPCLIP
   func makeDetailGlobalStatsView(by caseType: CovidEndpoints.CaseType) -> some View {
     let detailUseCase = Injection.init().provideDetailGlobalStats(by: caseType)
     let presenter = DetailGlobalStatsPresenter(globalStatsUseCase: detailUseCase)
     
     return DetailGlobalStatsView(presenter: presenter, caseType: caseType)
   }
+  #endif
   
 }
