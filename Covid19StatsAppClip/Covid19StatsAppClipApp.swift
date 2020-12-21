@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct Covid19StatsAppClipApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  
+  @StateObject var homePresenter = HomePresenter(homeUseCase: Injection().provideHome())
+  @StateObject var searchPresenter = SearchPresenter(searchUseCase: Injection().provideSearch())
+  
+  var body: some Scene {
+    WindowGroup {
+      ContentView()
+        .environmentObject(homePresenter)
+        .environmentObject(searchPresenter)
     }
+  }
 }
