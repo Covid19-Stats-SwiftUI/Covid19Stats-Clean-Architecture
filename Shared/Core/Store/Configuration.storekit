@@ -1,6 +1,20 @@
 {
   "products" : [
-
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "C3338D15",
+      "localizations" : [
+        {
+          "description" : "Full access news",
+          "displayName" : "News Premium",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.arisupriatna.Covid19Stats.IAP.NewsPremium",
+      "referenceName" : "News Premium",
+      "type" : "NonConsumable"
+    }
   ],
   "settings" : {
 
