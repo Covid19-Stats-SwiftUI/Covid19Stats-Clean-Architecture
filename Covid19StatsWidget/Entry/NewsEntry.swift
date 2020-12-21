@@ -10,9 +10,9 @@ import WidgetKit
 
 struct NewsEntry: TimelineEntry {
   
-  var date: Date
-  var isPlaceholder = false
-  var news: [News]
+  public let date: Date
+  public var isPlaceholder = false
+  public let news: [News]
   
 }
 
