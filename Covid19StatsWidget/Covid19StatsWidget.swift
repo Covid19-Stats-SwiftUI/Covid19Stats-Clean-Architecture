@@ -14,6 +14,7 @@ struct Covid19StatsWidget: Widget {
   var body: some WidgetConfiguration {
     IntentConfiguration(kind: kind, intent: SelectCountryIntent.self, provider: GlobalCaseStatsIntentTimelineProvider(), content: { (entry) in
       Covid19StatsWidgetEntryView(entry: entry)
+        .widgetURL(entry.url)
     })
     .configurationDisplayName("Covid19 Stats Widget")
     .description("Show Covid19 stats global")
