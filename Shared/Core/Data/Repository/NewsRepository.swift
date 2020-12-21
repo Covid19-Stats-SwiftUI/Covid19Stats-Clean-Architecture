@@ -35,24 +35,8 @@ final class NewsRepository: NSObject {
 extension NewsRepository: NewsRepositoryProtocol {
   
   func getNews() -> AnyPublisher<[NewsModel], Error> {
-    self.locale.getNews()
-      .flatMap { result  -> AnyPublisher<[NewsModel], Error> in
-        if result.isEmpty {
-          return self.remote.getNews()
-            .map { NewsMapper.mapNewsResponseToEntities(input: $0) }
-            .flatMap { self.locale.addNews(from: $0) }
-            .filter { $0 } 
-            .flatMap { _ in
-              self.locale.getNews()
-                .map { NewsMapper.mapNewsEntitiesToDomains(input: $0) }
-            }
-            .eraseToAnyPublisher()
-        } else {
-          return self.locale.getNews()
-            .map { NewsMapper.mapNewsEntitiesToDomains(input: $0) }
-            .eraseToAnyPublisher()
-        }
-      }
+    self.remote.getNews()
+      .map { NewsMapper.mapNewsResponseToDomains(input: $0) }
       .eraseToAnyPublisher()
   }
   
