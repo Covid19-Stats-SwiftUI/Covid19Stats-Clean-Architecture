@@ -7,11 +7,11 @@
 * [x] Add feature news
 * [x] WidgetKit Static for CovidStats
 * [x] WidgetKit with Intent + SiriKit for CovidStats
-* [ ] WidgetKit with Deeplink for CovidStats
+* [x] WidgetKit with Deeplink for CovidStats
 * [x] WidgetKit Static for News
-* [ ] WidgetKit with Intent + SiriKit for News
-* [ ] WidgetKit with Deeplink for News
-* [ ] App Clip
+* [x] WidgetKit with Intent + SiriKit for News
+* [x] WidgetKit with Deeplink for News
+* [x] App Clip
 * [ ] Support iPadOS
 * [ ] Support macOS
 * [ ] Unit Testing
