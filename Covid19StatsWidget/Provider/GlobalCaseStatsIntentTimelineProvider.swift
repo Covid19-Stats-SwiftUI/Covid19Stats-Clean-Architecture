@@ -59,7 +59,7 @@ struct GlobalCaseStatsIntentTimelineProvider: IntentTimelineProvider {
       remoteService.getGlobalCaseStats { (result) in
         switch result {
         case .success(let stats):
-          let globalStatsEntry = GlobalCaseStatsEntry(date: Date(), globalStats: .init(title: "Global 🌍", confirmed: stats.confirmed, recovered: stats.recovered, deaths: stats.deaths))
+          let globalStatsEntry = GlobalCaseStatsEntry(date: Date(), globalStats: .init(title: "Global 🌍", confirmed: stats.confirmed, recovered: stats.recovered, deaths: stats.deaths), url: URL(string: "stats://home"))
           completion(.success(globalStatsEntry))
         case .failure(let error):
           completion(.failure(error))
@@ -71,7 +71,8 @@ struct GlobalCaseStatsIntentTimelineProvider: IntentTimelineProvider {
         case .success(let stats):
           let globalStastEntry = GlobalCaseStatsEntry(
             date: Date(),
-            globalStats: .init(title: param.displayString, confirmed: stats.confirmed, recovered: stats.recovered, deaths: stats.deaths)
+            globalStats: .init(title: param.displayString, confirmed: stats.confirmed, recovered: stats.recovered, deaths: stats.deaths),
+            url: URL(string: "stats://search?id=\(id)&name=\(id)&iso=\(param.iso2 ?? "")".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
           )
           completion(.success(globalStastEntry))
         case .failure(let error):
