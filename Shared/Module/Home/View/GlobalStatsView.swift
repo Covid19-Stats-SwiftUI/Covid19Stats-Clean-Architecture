@@ -17,6 +17,7 @@ struct GlobalStatsView: View {
   
   var body: some View {
     VStack {
+      #if !APPCLIP
       presenter.linkBuilderDetailGlobalStats(by: .confirmed, isActive: $isActiveConfirmed) {
         EmptyView()
       }
@@ -28,6 +29,7 @@ struct GlobalStatsView: View {
       presenter.linkBuilderDetailGlobalStats(by: .deaths, isActive: $isActiveDeaths) {
         EmptyView()
       }
+      #endif
       
       ContainerStatsView(
         title: "Confirmed",
