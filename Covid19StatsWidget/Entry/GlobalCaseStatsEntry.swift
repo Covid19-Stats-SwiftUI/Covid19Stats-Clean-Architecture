@@ -10,9 +10,11 @@ import WidgetKit
 
 struct GlobalCaseStatsEntry: TimelineEntry {
   
-  var date: Date
-  var isPlaceholder = false
-  let globalStats: GlobalCaseStatsResponse
+  public let date: Date
+  public var isPlaceholder = false
+  public let globalStats: GlobalCaseStatsResponse
+  
+  public var url: URL? = nil
   
 }
 
