@@ -12,11 +12,14 @@ struct ContentView: View {
   @EnvironmentObject var homePresenter: HomePresenter
   @EnvironmentObject var searchPresenter: SearchPresenter
   @EnvironmentObject var newsPresenter: NewsPresenter
+  @StateObject var storeManager: StoreManager
+  @State var selectedCountry: CountryModel?
+  @State var selectedNews: NewsModel?
   
-  @State var selectedTab: String = "home"
+  @State var selection: String = "home"
   
   var body: some View {
-    TabView(selection: $selectedTab) {
+    TabView(selection: $selection) {
       NavigationView {
         HomeView(presenter: homePresenter)
       }
@@ -38,7 +41,7 @@ struct ContentView: View {
         .tag("search")
       
       NavigationView {
-        NewsView(presenter: newsPresenter)
+        NewsView(presenter: newsPresenter, storeManager: storeManager)
       }
       .tabItem {
         VStack {
@@ -48,11 +51,36 @@ struct ContentView: View {
       }
       .tag("news")
     }
-  }
-}
-
-struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView()
+    .sheet(item: $selectedCountry, onDismiss: { 
+      self.selectedCountry = nil
+    }, content: { (country) in
+      NavigationView {
+        DetailCountryStatsView(country: country)
+      }
+    })
+    .onOpenURL(perform: { url in
+      
+      self.selection = url.host ?? "home"
+      
+      if !(self.selection == "news") {
+        guard let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems else {
+          self.selectedCountry = nil
+          return
+        }
+        
+        var dict = [String: String]()
+        queryItems.forEach { (item) in
+          dict[item.name] = item.value
+        }
+        
+        guard let name = dict["name"], let iso = dict["iso"] else {
+          self.selectedCountry = nil
+          return
+        }
+        
+        self.selectedCountry = CountryModel(name: name, iso2: iso)
+      }
+      
+    })
   }
 }
