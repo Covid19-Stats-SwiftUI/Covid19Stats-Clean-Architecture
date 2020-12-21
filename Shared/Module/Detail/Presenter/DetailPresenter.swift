@@ -38,7 +38,6 @@ class DetailPresenter: ObservableObject {
         }
       }, receiveValue: { result in
         self.stats = result
-        debugPrint("Result: \(result)")
       })
       .store(in: &cancellables)
   }
