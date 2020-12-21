@@ -20,6 +20,7 @@ struct NewsWidgetLarge: View {
       
       ForEach(entry.news.prefix(5), id: \.self) { result in
         NewsRowView(news: result)
+          .widgetURL(URL(string: "stats://news?url=\(result.url ?? "")"))
           .padding(.vertical, 4)
       }
     }
